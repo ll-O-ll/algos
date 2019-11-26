@@ -5,7 +5,7 @@ def reverseLinkedList(head):
         followingNode = currentNode.next
         currentNode.next = BackNode
         BackNode = currentNode
-        currentNode = followingNode
+        currentNode = followingNode 
     return BackNode
     
 

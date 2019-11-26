@@ -4,6 +4,7 @@ def maxSumIncreasingSubsequence(array):
     maxSum = float("-inf")
     if len(array) == 0:
         return [0,[]]
+     
     
     for i in range(len(array)):
         sums[i] += array[i]
