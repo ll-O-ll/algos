@@ -7,9 +7,7 @@ def caesarCipherEncryptor(string, key):
     key = key % len(alpha)
     for i in range(len(string)):
         index = alpha.index(string[i])
-        shift = index + key
-        if shift >= len(alpha):
-            shift = (index + key) % len(alpha)
+        shift = (index + key) % len(alpha)
         string = string + alpha[shift]
     return string[offset:]
 

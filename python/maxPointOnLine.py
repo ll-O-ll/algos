@@ -19,7 +19,7 @@ def maxPointsOnLine(points):
         max_n = max(max_n, line_n+same_n+1) # add duplicate point counter if nonzero and add the point (i) on which we evaluate all lines that could traverse it 
     print(max_n) 
 
-def getGCD(a, b):
+def getGCD(a, b): #find greatest common divider to normalize slopes in hash table
     if a == 0:
         return b
     return getGCD(b % a, a)
