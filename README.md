@@ -1,3 +1,3 @@
 # algos
-This repo contains algorithms solved on computer and on paper
+algorithms solved from scratch to prepare for coding inrteviews
 
