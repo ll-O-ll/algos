@@ -1,9 +1,9 @@
 def groupAnagrams(words):
     # Write your code here.
 	totalAnagrams = []
-	visitedAnagram = [0] * len(words)
+	visitedAnagram = [0] * len(words) 
     for i in range(len(words)):
-		if visitedAnagram[i] == 0:
+		if visitedAnagram[i] == 0: # use visitedAnagram to search for node.
 			anagrams = []
 			word1 = words[i]
 			anagrams.append(word1)

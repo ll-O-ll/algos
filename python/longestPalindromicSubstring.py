@@ -1,7 +1,6 @@
 def longestPalindromicSubstring(string):
 	#O(n^2) time 
 	#O(1) space
-    # Write your code here.
 	# store max algorithm + isPalindrome
 	#two cases: "ab | ba" even 
 			  # "ab c ba" odd

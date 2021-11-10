@@ -23,9 +23,10 @@ def powerset3(array):
     subsets = [[]]
     for ele in array:
         for i in range(len(subsets)):
-            subsets.append(subsets[i] + [ele])
+            if sorted(subsets[i] + [ele]) not in subsets:
+                subsets.append(sorted(subsets[i] + [ele]))
     return subsets	
     
 if __name__ == '__main__':
-    print(powerset([1,2]))
+    print(powerset([1,2, 2]))
     
