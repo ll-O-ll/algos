@@ -6,20 +6,17 @@ def topologicalSort(jobs, deps):
     for job in jobs:
         if HasNoIncomingEdge(job,deps):
             S.insert(0,job)
-    print(S)
     while len(S) != 0:
         node = S.pop(0)
         L.append(node)
-        # problem exists when removing edge sets index to next element. skips current element. 
-        # problem could be avoided using data structures 
         i = 0
         while i != len(deps):
-            n = deps[i][0]
-            m = deps[i][1]
-            if n == node:
-                deps.remove([n,m])
-                if HasNoIncomingEdge(m, deps):
-                    S.insert(0,m)
+            from_node = deps[i][0]
+            to_node = deps[i][1]
+            if from_node == node:
+                deps.remove([from_node, to_node])
+                if HasNoIncomingEdge(to_node, deps):
+                    S.insert(0, to_node)
                 continue
             i += 1
     if len(deps) != 0:
