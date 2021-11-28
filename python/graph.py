@@ -1,36 +1,54 @@
-# Adjascency List representation in Python
+class Node:
+    '''
+    
+    The Node class holds two attributes:
+        - the 'value' attribute represents the value currently stored at the Node object
+        - the 'next' attribute represents the next node to which the Node object points
 
-
-class AdjNode:
+    '''
     def __init__(self, value):
-        self.vertex = value
+        self.value = value
         self.next = None
 
-
 class Graph:
-    def __init__(self, num):
-        self.V = num
-        self.graph = [None] * self.V
+    '''
+    
+    The Graph class will create an undirected graph data structure filled with nodes (vertices). 
+    Here we will adopt the adjacency representation of the graph
+    Two attributes:
+        - 'num_nodes' - holds the number of nodes in the graph whose values range from (0 - num_nodes - 1)
+        - 'graph' - holds the adjacency list where each index holds the Node object whose value is that of the index number. 
+                    Each Node object will turn into an linked list which shows which nodes are connected to that Node object  
 
-    # Add edges
-    def add_edge(self, s, d):
-        node = AdjNode(d)
-        node.next = self.graph[s]
-        self.graph[s] = node
+    '''
+    def __init__(self, num_nodes):
+        
+        self.num_nodes = num_nodes
+        self.graph = [None] * num_nodes # all linked lists end with None
 
-        node = AdjNode(s)
-        node.next = self.graph[d]
-        self.graph[d] = node
+    def add_edge(self, u_idx, v_idx):
+        # let u == from_node
+        # let v == to_node
+        # direction doesn't matter so order of operation for connecting u -> v and v -> u doesn't matter
+        u = Node(u_idx)
+        v = Node(v_idx)
 
-    # Print the graph
+        # we need to connect u -> v
+        u.next = self.graph[v_idx]  # since linked_list store at idx v in the graph attribute
+        self.graph[v_idx] = u # update graph attribute at idx v to object 
+
+        v.next = self.graph[u_idx]
+        self.graph[u_idx] = v
+    
     def print_agraph(self):
-        for i in range(self.V):
+        for i in range(self.num_nodes):
             print("Vertex " + str(i) + ":", end="")
             temp = self.graph[i]
             while temp:
-                print(" -> {}".format(temp.vertex), end="")
+                print(" -> {}".format(temp.value), end="")
                 temp = temp.next
             print(" \n")
+
 
 
 if __name__ == "__main__":
