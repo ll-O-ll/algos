@@ -5,12 +5,11 @@ from collections import deque
 # and methods to the class.
 class Node:
     def __init__(self, name):
-        self.children = []
         self.name = name
-
+        self.children = []
+        
     def addChild(self, name):
         self.children.append(Node(name))
-        return self
 
     def breadthFirstSearch(self, array):
         # Write your code here.       
