@@ -1,9 +1,11 @@
 import time
  
 def chunks(l, n=5):
+    # returns a list of 'chunks' where each 'chunk' is of length n (default is 5)
     return [l[i:i+n] for i in range(0, len(l), n)]
  
 def binary(n, digits=8):
+    # actually only need 6 digits cuz max number to be represented from a digital clock is 60 (2^6 = 64 > 60)
     n=int(n)
     return '{0:0{1}b}'.format(n, digits)
  
@@ -18,14 +20,14 @@ def bin_bit(h):
     return "|".join(list(h))
  
  
-x=str(time.ctime()).split()
-y=x[3].split(":")
- 
-s=y[-1]
-y=map(binary,y[:-1])
- 
-print(bin_bit(y[0]))
+x = str(time.ctime()).split()
+print(x)
+tyme = x[3].split(":")
+scds =tyme[-1]
+tyme=map(binary,tyme[:-1])
+tyme = list(tyme)
+print(bin_bit(tyme[0]))
 print(" ")
-print(bin_bit(y[1]))
+print(bin_bit(tyme[1]))
 print(" ")
-print(secs(s))
+print(secs(scds))
